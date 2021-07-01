@@ -150,6 +150,10 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 			proxy();
 		}
 
+		if (data[0] == "<focus>") {
+			chrome.tabs.create({url: chrome.runtime.getURL("popup/focus.html")}); 
+		}
+
 		if (data[0] == "<change_acc>") {
 			remove_cookie();
 			setTimeout(function() {
